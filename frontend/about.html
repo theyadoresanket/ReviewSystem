@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StillReview</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            let overlay = document.getElementById("overlay");
+            let content = document.getElementById("content");
+            let isActive = sidebar.classList.contains("active");
+            
+            if (isActive) {
+                sidebar.classList.remove("active");
+                overlay.classList.remove("show");
+                content.classList.remove("compressed");
+            } else {
+                sidebar.classList.add("active");
+                overlay.classList.add("show");
+                content.classList.add("compressed");
+            }
+        }
+        
+        function closeSidebar(event) {
+            let sidebar = document.getElementById("sidebar");
+            let overlay = document.getElementById("overlay");
+            let content = document.getElementById("content");
+            
+            if (!sidebar.contains(event.target)) {
+                sidebar.classList.remove("active");
+                overlay.classList.remove("show");
+                content.classList.remove("compressed");
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+            transition: margin-left 0.3s ease, width 0.3s ease;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: black;
+            color: white;
+            border-bottom: 1px solid #ddd;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .search-bar {
+            padding: 10px;
+            width: 300px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+        }
+        main {
+            margin-top: 50px;
+            position: relative;
+            flex: 1;
+        }
+        .post-input {
+            padding: 15px;
+            width: 50%;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            display: block;
+            margin: 20px auto;
+        }
+        h1 {
+            font-size: 32px;
+        }
+        .italic {
+            font-style: italic;
+        }
+        .handwritten {
+            font-family: cursive;
+        }
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #333;
+            padding-top: 20px;
+            transition: left 0.3s ease;
+            color: white;
+            z-index: 2;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background: #555;
+        }
+        .sidebar-logo {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #555;
+        }
+        .sidebar-logo img {
+            max-width: 80%;
+            height: auto;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1;
+        }
+        .overlay.show {
+            display: block;
+        }
+        #content {
+            width: 100%;
+            transition: transform 0.3s ease;
+            flex: 1;
+            transform-origin: left center;
+        }
+        .footer {
+            background-color: #635BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: auto;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .review-feed {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .review-card {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+            margin: 10px 0;
+            text-align: left;
+        }
+        .review-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .review-card h3 {
+            margin: 10px 0;
+        }
+        .review-card p {
+            margin: 10px 0;
+        }
+        .star-rating {
+            color: gold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay" onclick="closeSidebar(event)"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <img src="path/to/your-logo.png" alt="StillReview Logo">
+        </div>
+        <a href="#">Explore</a>
+        <a href="#">Inbox</a>
+        <a href="#">Profile</a>
+        <a href="#">My Reviews</a>
+        <a href="#">Bookmarks</a>
+        <a href="#">Settings</a>
+    </div>
+    <div id="content">
+        <header>
+            <div class="logo" onclick="toggleSidebar()">☰ StillReview</div>
+            <input type="text" placeholder="Search StillReview..." class="search-bar">
+            <nav>
+                <a href="#">Inbox</a>
+                <a href="#">My Profile</a>
+            </nav>
+        </header>
+        <main>
+            <input type="text" placeholder="What's on your mind..." class="post-input">
+            <h1>Where Reviewing meets <span class="italic">Authenticity</span> and <span class="handwritten">part</span> ways with <span class="handwritten">Censorship.</span></h1>
+            <div class="review-feed">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <h3>John Doe</h3>
+                    <div class="star-rating">★★★★☆</div>
+                    <p>Great service at XYZ Restaurant! The food was amazing, and the staff was very friendly.</p>
+                    <img src="path/to/review-image-1.jpg" alt="Review Image">
+                </div>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <h3>Jane Smith</h3>
+                    <div class="star-rating">★★★☆☆</div>
+                    <p>Average experience at ABC Healthcare. The wait time was too long.</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <h3>Alice Johnson</h3>
+                    <div class="star-rating">★★★★★</div>
+                    <p>Fantastic experience at DEF Spa! Highly recommend their massage services.</p>
+                    <img src="path/to/review-image-2.jpg" alt="Review Image">
+                </div>
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <h3>Bob Brown</h3>
+                    <div class="star-rating">★★☆☆☆</div>
+                    <p>Disappointing service at GHI Electronics. The product stopped working after a week.</p>
+                </div>
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <h3>Charlie Davis</h3>
+                    <div class="star-rating">★★★★☆</div>
+                    <p>Great food and ambiance at JKL Cafe. Perfect for a weekend brunch!</p>
+                    <img src="path/to/review-image-3.jpg" alt="Review Image">
+                </div>
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <h3>Eva Green</h3>
+                    <div class="star-rating">★★★★★</div>
+                    <p>Excellent service at MNO Salon. The stylist did an amazing job with my hair!</p>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            &copy; 2025 StillReview. All rights reserved. <a href="#">Privacy</a> | <a href="#">Terms of Use</a> | <a href="#">Cookie preferences</a> | Stay connected with StillReview on social.
+        </footer>
+    </div>
+</body>
+</html>
