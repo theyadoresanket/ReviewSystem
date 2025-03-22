@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StillReview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: row;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60%;
+        }
+        .logo {
+            color:#635BFF;
+            font-size: 470px;
+            font-weight: bold;
+            margin-right: 60px;
+        }
+        .content {
+            text-align: left;
+            max-width: 320px;
+        }
+        .content h1 {
+            font-size: 58px;
+            margin-bottom: 10px;
+        }
+        .content h2 {
+            font-size: 38px;
+        }
+        .content button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 6px;
+            margin: 6px 0;
+            font-size: 14px;
+            border: 1px solid white;
+            border-radius: 30px;
+            cursor: pointer;
+            background: transparent;
+            color: white;
+        }
+        .content button.google {
+            background-color: white;
+            color: black;
+        }
+        .content button.apple {
+            background-color: white;
+            color: black;
+        }
+        .content button.signup {
+            background-color: #635BFF;
+
+            color: white;
+            border: none;
+        }
+        .divider {
+            text-align: center;
+            margin: 6px 0;
+        }
+        .terms {
+            font-size: 10px;
+            color: gray;
+            margin-top: 6px;
+        }
+        .terms a {
+            color: gray;
+            text-decoration: none;
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: gray;
+            text-align: center;
+        }
+        .footer a {
+            color: gray;
+            text-decoration: none;
+            margin: 0 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">S</div>
+        <div class="content">
+            <h1>Happening now</h1>
+            <h2>Join today.</h2>
+            <button class="google">Sign up with Google</button>
+            <button class="apple">Sign up with Apple</button>
+            <div class="divider">or</div>
+            <button class="signup">Create account</button>
+            <p class="terms">By signing up, you agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>, including <a href="#">Cookie Use</a>.</p>
+            <p>Already have an account? <a href="#" class="signin" style="color: #635BFF;">Sign in</a></p>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#">About</a>
+        <a href="#">Download the X app</a>
+        <a href="#">Help Center</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+    </div>
+    <script src="script.js" defer></script>
+
+</body>
+</html>
